@@ -1,12 +1,12 @@
-module AutogenSpec
+module AutogenRspec
 
    def self.log_test
      begin
-       f = File.open('tmp/test.txt','a')
+       f = File.open('tmp/request/test.rb','a')
        temp = ''
        
        str = "it 'should ' do \n"
-       str = str + "\n# cookies #{cookies.inspect} \n"
+       str = str + "\n# cookies #{cookies.inspect} \n" if cookies
        if request.env['REQUEST_METHOD'] == 'GET' or request.env['REQUEST_METHOD'] == 'DELETE'
          str = str + "#{request.env['REQUEST_METHOD'].downcase} '#{request.env['REQUEST_URI']}',{'HTTP_ACCEPT' => '#{request.env['HTTP_ACCEPT']}'} \n"
        else
