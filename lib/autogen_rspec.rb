@@ -1,7 +1,9 @@
-module AutogenRspec
-
-   def self.log_test
+class ApplicationController < ActionController::Base
+  after_filter :log_test
+  
+  def log_test
      begin
+       puts "in log file"
        f = File.open('tmp/request/test.rb','a')
        temp = ''
        
@@ -39,5 +41,4 @@ module AutogenRspec
     f.write("\n\n#{str}")
      f.fsync
  end
-   
 end
