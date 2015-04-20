@@ -7,6 +7,7 @@ I am still working on the gem. Will have a detailed and good doc after that.
 == Installation
 
 Enter following in the Gemfile:
+
 gem 'autogen_rspec'
 
 or
